@@ -22,7 +22,7 @@ class Menu extends Component {
                 <Card>
                     <CardImg top src={dish.image} alt={dish.name} />
                     <CardBody>
-                      <DishDetail name={dish.name} description={dish.description}></DishDetail>
+                      <DishDetail dish={dish} name={dish.name} description={dish.description}></DishDetail>
                     </CardBody>
                 </Card>
             );
