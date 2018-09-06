@@ -1,5 +1,7 @@
 import React , {Component} from 'react';
+import DishDetail from './DishdetailComponent';
 import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from 'reactstrap';
+import { DISHES } from '../shared/dishes';
 
 class Menu extends Component {
      
@@ -20,8 +22,7 @@ class Menu extends Component {
                 <Card>
                     <CardImg top src={dish.image} alt={dish.name} />
                     <CardBody>
-                      <CardTitle>{dish.name}</CardTitle>
-                      <CardText>{dish.description}</CardText>
+                      <DishDetail name={dish.name} description={dish.description}></DishDetail>
                     </CardBody>
                 </Card>
             );
