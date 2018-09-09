@@ -64,7 +64,9 @@ class Menu extends Component {
                   <div  className="col-12 col-md-5 m-1">
                     {this.renderDish(this.state.selectedDish)}
                   </div > 
-             <Comments dishComments={this.state.comms}></Comments>
+
+                  <div className="col-12 col-md-5 m-1"><Comments dishComments={this.state.comms}></Comments></div>
+             
                  </div> 
                 
     </div>
