@@ -1,7 +1,9 @@
 import React , {Component} from 'react';
 import DishDetail from './DishdetailComponent';
+import Comments from './CommentsComponent';
 import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from 'reactstrap';
 import { DISHES } from '../shared/dishes';
+
 
 class Menu extends Component {
      
@@ -9,22 +11,26 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-        selectedDish : null
+        selectedDish : null,
+       comms:null
     }
  }
      onDishSelect(dish) {
-         this.setState({selectedDish:dish})
+         this.setState({selectedDish:dish})   
+         this.setState({comms:dish.comments})     
      }
 
      renderDish(dish) {
         if (dish != null)
             return(
+               
                 <Card>
                     <CardImg top src={dish.image} alt={dish.name} />
                     <CardBody>
                       <DishDetail dish={dish} name={dish.name} description={dish.description}></DishDetail>
                     </CardBody>
-                </Card>
+
+                </Card> 
             );
         else
             return(
@@ -41,7 +47,7 @@ class Menu extends Component {
                 <div key={dish.id} className='col-12 col-md-5 m-1'>
               <Card key={dish.id}
                   onClick={() => this.onDishSelect(dish)}>
-                <CardImg width='100%' src = {dish.image} alt={dish.name}/>
+                <CardImg width='100%'src = {dish.image} alt={dish.name}/>
                 <CardImgOverlay>
                 <CardTitle>{dish.name}</CardTitle>
             </CardImgOverlay>
@@ -52,15 +58,15 @@ class Menu extends Component {
          return (
     <div className="container">
       <div className='row'>
-    
            {menu}
-    
        </div>
-       <div className="row">
+        <div className="row">
                   <div  className="col-12 col-md-5 m-1">
                     {this.renderDish(this.state.selectedDish)}
-                  </div>
-                </div>
+                  </div > 
+             <Comments dishComments={this.state.comms}></Comments>
+                 </div> 
+                
     </div>
          );
      }
