@@ -1,9 +1,13 @@
 import React , {Component} from 'react';
-import DishDetail from './DishdetailComponent';
-import Comments from './CommentsComponent';
+//import DishDetail from './DishdetailComponent';
+//import Comments from './DishdetailComponent'
+
+//import Comments from './CommentsComponent';
 import {Card,CardImg,CardImgOverlay,CardText,CardBody,CardTitle} from 'reactstrap';
 import { DISHES } from '../shared/dishes';
 
+var {Comments} = require('./DishdetailComponent');
+var {DishDetail} = require('./DishdetailComponent');
 
 class Menu extends Component {
      
@@ -25,7 +29,7 @@ class Menu extends Component {
      renderDish(dish) {
         if (dish != null)
             return(
-               
+               <div>
                 <Card>
                     <CardImg top src={dish.image} alt={dish.name} />
                     <CardBody>
@@ -33,6 +37,7 @@ class Menu extends Component {
                     </CardBody>
 
                 </Card> 
+                </div>
             );
         else
             return(
@@ -69,10 +74,11 @@ class Menu extends Component {
 
                   <div className="col-12 col-md-5 m-1">
                   <h4>{this.state.textComments}</h4>
-                  <Comments dishComments={this.state.comms}></Comments></div>
-                  
+                  <Comments dishComments={this.state.comms}></Comments>
+                
                  </div> 
                 
+    </div>
     </div>
          );
      }
