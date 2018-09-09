@@ -12,12 +12,14 @@ class Menu extends Component {
 
     this.state = {
         selectedDish : null,
-       comms:null
+       comms:null,
+       textComments:null
     }
  }
      onDishSelect(dish) {
          this.setState({selectedDish:dish})   
-         this.setState({comms:dish.comments})     
+         this.setState({comms:dish.comments})
+         this.setState({textComments: 'Comments'})     
      }
 
      renderDish(dish) {
@@ -37,7 +39,7 @@ class Menu extends Component {
                 <div></div>
             );
     }
-
+ 
 
     
      render() {
@@ -65,8 +67,10 @@ class Menu extends Component {
                     {this.renderDish(this.state.selectedDish)}
                   </div > 
 
-                  <div className="col-12 col-md-5 m-1"><Comments dishComments={this.state.comms}></Comments></div>
-             
+                  <div className="col-12 col-md-5 m-1">
+                  <h4>{this.state.textComments}</h4>
+                  <Comments dishComments={this.state.comms}></Comments></div>
+                  
                  </div> 
                 
     </div>

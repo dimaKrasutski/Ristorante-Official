@@ -4,7 +4,6 @@ import {DISHES} from '../shared/dishes'
 class Comments extends Component {
     constructor(props){
         super(props);
-      
 }
    
    renderComments(comments){
@@ -12,7 +11,8 @@ class Comments extends Component {
       const Comm =  comments.map((comment)=>{
 return <div><ul className='list-unstyled' key={comment.id}>
 <li>{comment.comment}</li>
-<li>{comment.author}</li>
+<br></br>
+<li>-- {comment.author} , {comment.date}</li>
 </ul> 
 </div>
 }) 
