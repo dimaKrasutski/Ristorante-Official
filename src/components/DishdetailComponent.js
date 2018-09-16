@@ -19,9 +19,7 @@ import {Link} from 'react-router-dom';
             <div></div>
         );
   
-
-    }
-
+        }
     function RenderComments({comments}) {
         if (comments != null) {
             const dishComments = comments.map((comment) => {
@@ -75,4 +73,4 @@ import {Link} from 'react-router-dom';
     }
 
 export default DishDetail;
-
+    
