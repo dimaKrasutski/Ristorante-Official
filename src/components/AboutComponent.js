@@ -9,9 +9,9 @@ function RenderLeader(props){
         return (
             <Media key={leader.id}>
      <Media left href="#">
-            <Media object className='m-3' src={leader.image} alt="Generic placeholder image" />
+            <Media object className='m-4' src={leader.image} alt="Generic placeholder image" />
                   </Media>
-                    <Media body>
+                    <Media body className ='m-4'>
         <Media heading>{leader.name}</Media>
         <p>{leader.designation}</p>
      {leader.description}
