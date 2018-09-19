@@ -42,8 +42,6 @@ import {Link} from 'react-router-dom';
                 <div></div>
             );
         }
-      
-      
     }
 
     const  DishDetail = (props) => {
@@ -64,7 +62,6 @@ import {Link} from 'react-router-dom';
            <div className='row' >
            <div className='col-12 col-md-5 m-1'><RenderDish dish={props.dish}></RenderDish></div>
           <div className='col-12 col-md-5 m-1'><RenderComments comments={props.comments}></RenderComments></div>
-     
             </div> 
             </div>)
             }
