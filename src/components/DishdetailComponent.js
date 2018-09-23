@@ -112,24 +112,25 @@ class CommentForm extends Component{
     render(){
         return(
             <div>
-            <Button onClick={this.toggleModal}>
-            <span className="fa fa-pencil"> Submmit Comment</span>
+            <Button onClick={this.toggleModal} >
+            <span className="fa fa-pencil">Submit Comment</span>
             </Button>
             
             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
 <ModalHeader>Submit Comment</ModalHeader>
+
 <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
 
 <Row className="form-group">
-<Label htmlFor="firstname" md={{size:8,offset:1}}>Rating</Label>
+<Label htmlFor="rating" md={{size:8,offset:1}}>Rating</Label>
       <Col md={{size: 8, offset: 1}}>
-      <Input type="select" name="select" model='checkbox' id="exampleSelect">
+      <Control.select name="rating" model='.rating' id="rating" className='form-control'>
             <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
-          </Input>
+          </Control.select>
       </Col>
   </Row>
  
