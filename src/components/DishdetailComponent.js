@@ -22,7 +22,7 @@ function RenderDish({dish}) {
         );
   
         }
-    function RenderComments({comments}) {
+    function RenderComments({comments,addComment,dishId}) {
         if (comments != null) {
             const dishComments = comments.map((comment) => {
                 return (
@@ -37,7 +37,7 @@ function RenderDish({dish}) {
                 <div>
                     <h4>Comments</h4>
                     <ul className="list-unstyled">{dishComments}</ul>
-                    <CommentForm></CommentForm>
+                    <CommentForm dishId = {dishId} addComment = {addComment}></CommentForm>
                 </div>
             )
         } else {
@@ -64,7 +64,10 @@ function RenderDish({dish}) {
             </div>
            <div className='row' >
            <div className='col-12 col-md-5 m-1'><RenderDish dish={props.dish}></RenderDish></div>
-          <div className='col-12 col-md-5 m-1'><RenderComments comments={props.comments}></RenderComments>
+          <div className='col-12 col-md-5 m-1'><RenderComments comments={props.comments}
+          addComment = {props.addComment}
+          dishId = {props.dish.id}
+          ></RenderComments>
           </div>
             </div> 
            
@@ -99,8 +102,9 @@ class CommentForm extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(values){
-        console.log('Current state is: ' +JSON.stringify(values))
-        alert('Current state is: ' +JSON.stringify(values))          
+        this.toggleModal()
+        this.props.addComment(this.props.dishId,values.rating,values.author,values.comment)  
+        console.log(values)
     }
 
    toggleModal(){
@@ -135,9 +139,9 @@ class CommentForm extends Component{
   </Row>
  
 <Row className="form-group">
-<Label htmlFor="userName" md={{size: 8, offset: 1}}>Your Name</Label>
+<Label htmlFor="author" md={{size: 8, offset: 1}}>Your Name</Label>
       <Col md={{size:8,offset:1}}>
-          <Control.text model=".userName" id="userName" name="userName"
+          <Control.text model=".author" id="author" name="author" // class model='' should be exactly as a name of payload in action
               placeholder="Your Name"
               className="form-control"
               validators={{
@@ -146,7 +150,7 @@ class CommentForm extends Component{
                />
                <Errors
                                         className="text-danger"
-                                        model=".userName"
+                                        model=".author"
                                         show="touched"
                                         messages={{
                                             minLength: 'Must be greater than 2 characters',
@@ -156,9 +160,9 @@ class CommentForm extends Component{
       </Col>
   </Row>
   <Row className="form-group">
-      <Label htmlFor="message" md={{size: 8, offset: 1}}>Comment</Label>
+      <Label htmlFor="comment" md={{size: 8, offset: 1}}>Comment</Label>
       <Col md={{size:8,offset:1}}>
-          <Control.textarea model=".message" id="message" name="message"
+          <Control.textarea model=".comment" id="comment" name="comment" // class model='' should be exactly as a name of payload in action
               rows="12"
               className="form-control" />
       </Col>
