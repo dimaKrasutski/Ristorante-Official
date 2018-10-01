@@ -23,7 +23,7 @@ function RenderDish({dish}) {
         );
   
         }
-    function RenderComments({comments,addComment,dishId}) {
+    function RenderComments({comments,postComment,dishId}) {
         if (comments != null) {
             const dishComments = comments.map((comment) => {
                 return (
@@ -38,7 +38,7 @@ function RenderDish({dish}) {
                 <div>
                     <h4>Comments</h4>
                     <ul className="list-unstyled">{dishComments}</ul>
-                    <CommentForm dishId = {dishId} addComment = {addComment}></CommentForm>
+                    <CommentForm dishId = {dishId} postComment = {postComment}></CommentForm>
                 </div>
             )
         } else {
@@ -84,7 +84,7 @@ function RenderDish({dish}) {
            <div className='row' >
            <div className='col-12 col-md-5 m-1'><RenderDish dish={props.dish}></RenderDish></div>
           <div className='col-12 col-md-5 m-1'><RenderComments comments={props.comments}
-          addComment = {props.addComment}
+          postComment = {props.postComment}
           dishId = {props.dish.id}
           ></RenderComments>
           </div>
@@ -122,7 +122,7 @@ class CommentForm extends Component{
     }
     handleSubmit(values){
         this.toggleModal()
-        this.props.addComment(this.props.dishId,values.rating,values.author,values.comment)  
+        this.props.postComment(this.props.dishId,values.rating,values.author,values.comment)  
         console.log(values)
     }
 
