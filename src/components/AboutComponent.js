@@ -109,7 +109,10 @@ function About(props) {
                 </div>
                 <div className="col-12">
                     <Media list>
-                        <RenderLeader leaders={props.leaders}></RenderLeader>
+                        <RenderLeader leaders={props.leaders} 
+                        leadersIsLoading={props.leadersIsLoading}
+                        leadersErrMess = {props.leadersErrMess}
+                        ></RenderLeader>
                     </Media>
                 </div>
             </div>
