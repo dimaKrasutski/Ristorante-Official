@@ -3,6 +3,7 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import {Loading} from './LoadingComponent';
+import {FadeTransform,Fade,Stagger,Random} from 'react-animation-components';
 
 function RenderLeader(props){
     if(props.leadersIsLoading){
@@ -24,26 +25,33 @@ function RenderLeader(props){
           );
     } 
     else if(props.leaders !=null){
-    const example = props.leaders.map((leader)=>{
+    
         return (
-            <Media key={leader.id}>
-     <Media left href="#">
-            <Media object className='m-4' src={baseUrl + leader.image} alt="Generic placeholder image" />
-                  </Media>
-                    <Media body className ='m-4'>
-        <Media heading>{leader.name}</Media>
-        <p>{leader.designation}</p>
-     {leader.description}
-      </Media>
-           </Media>
-        )
-    }) 
+            <div>
+                 <Stagger in >
+           {props.leaders.map((leader)=>{
+               return(
+                       <Fade in exitOpacity={0.25}>
+                        <Media key={leader.id}>
+                        <Media left href="#">
+                           <Media object className='m-4' src={baseUrl + leader.image} alt="Generic placeholder image" />
+                            </Media>
+                              <Media body className ='m-4'>
+                          <Media heading>{leader.name}</Media>
+                        <p>{leader.designation}</p>
+                           {leader.description}
+                            </Media>
+                           </Media>
+                           </Fade>
+        )})}
+        </Stagger>   
+           </div>
+    )}
+               } 
                 
-     return (<div>{example}</div>
-         
-     )
-      }
-    }
+      
+    
+
     
 function About(props) {
 
