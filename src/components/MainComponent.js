@@ -6,7 +6,7 @@ import Menu from './MenuComponent';
 import Contact from './ContactComponent';
 import DishDetail from './DishdetailComponent';
 import About from './AboutComponent.js'
-import {postComment,fetchDishes,fetchComments,fetchPromos, fetchLeaders} from '../redux/ActionCreators';
+import {postComment,fetchDishes,fetchComments,fetchPromos, fetchLeaders,fetchPostForm} from '../redux/ActionCreators';
 import {Switch,Route,Redirect,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import { actions } from 'react-redux-form';
@@ -18,7 +18,8 @@ const mapStateToProps = state => {
 dishes:state.dishes,
 comments:state.comments,
 promotions:state.promotions,
-leaders:state.leaders
+leaders:state.leaders,
+
    }
 }
 
@@ -29,7 +30,9 @@ const mapDispatchToProps = dispatch => ({
   resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
   fetchComments: () => {dispatch(fetchComments())},
   fetchPromos: () => {dispatch(fetchPromos())},
-  fetchLeaders: ()=>{dispatch(fetchLeaders())}
+  fetchLeaders: ()=>{dispatch(fetchLeaders())},
+  fetchPostForm:(firstname,lastname,telnum,email,agree,contactType,message) => dispatch(fetchPostForm(firstname,lastname,telnum,email,agree,contactType,message))
+
 });
 
 class Main extends Component {
@@ -88,7 +91,12 @@ class Main extends Component {
                   leadersErrMess={this.props.leaders.errMess} />} />} />
                   <Route exact path='/menu' component={() => <Menu dishes={this.props.dishes} />} />
                   <Route path='/menu/:dishId' component={DishWithId} />
-                  <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
+                  <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm}
+                  fetchPostForm={this.props.fetchPostForm}
+                  isLoading={this.props.isLoading}
+                  errMess = {this.props.errMess}
+                  
+                  />} />
                   <Redirect to="/home" />
               </Switch>
             </CSSTransition>

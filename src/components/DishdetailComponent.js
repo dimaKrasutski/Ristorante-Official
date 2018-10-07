@@ -35,7 +35,7 @@ function RenderDish({dish}) {
     function RenderComments({comments,postComment,dishId}) {
         if (comments != null) { 
                 return(
-
+             
                 <div >
                 <h4>Comments</h4>
                 <ul className='list-unstyled'>
@@ -52,6 +52,7 @@ function RenderDish({dish}) {
                         })}
                         </Stagger>
                 </ul>
+                <CommentForm dishId = {dishId} postComment = {postComment}></CommentForm>
                 </div>
                 )
         } else {

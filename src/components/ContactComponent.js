@@ -5,6 +5,7 @@ import {Control,LocalForm,Errors} from 'react-redux-form';
 import {Form, actions } from 'react-redux-form';
 
 
+
 const required = (val)=> val && val.length;
 const maxLength =(len)=>(val) =>!(val) || (val.length <= len)
 const minLength =(len)=>(val) =>val && (val.length >= len)
@@ -15,18 +16,21 @@ class Contact extends Component {
 
     constructor(props){
         super(props)
+
       
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    
+
+   
 
       handleSubmit(values){
-          console.log('Current state is: ' +JSON.stringify(values))
-          alert('Current state is: ' +JSON.stringify(values)) 
-          this.props.resetFeedbackForm();
-          // event.preventDefault();         
+          
+        this.props.fetchPostForm(values.firstname,values.lastname,values.telnum,values.email,values.agree,values.contactType,values.message);
+          this.props.resetFeedbackForm();        
       }
 
-    render(){
+      render(){
         return(
             <div className="container">
              <div className='row'>
@@ -72,7 +76,7 @@ class Contact extends Component {
                  <div className='col-12 col-md-9'>
 
                  
-                 <Form model='feedback' onSubmit={(values) => this.handleSubmit(values)}>
+                 <Form model='feedbackStore' onSubmit={(values) => this.handleSubmit(values)}>
 
 
                           <Row className="form-group">
@@ -81,6 +85,7 @@ class Contact extends Component {
                                     <Control.text model=".firstname" id="firstname" name="firstname"
                                         placeholder="First Name"
                                         className="form-control"
+                                        component='input'
                                         validators={{
                                             required, minLength: minLength(3), maxLength: maxLength(15)
                                         }}
@@ -210,4 +215,5 @@ class Contact extends Component {
     
 }
 
-export default Contact
+
+export default Contact;

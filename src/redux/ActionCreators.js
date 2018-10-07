@@ -38,6 +38,7 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) => { 
       })
     .then(response => response.json())
     .then(response => dispatch(addComment(response)))
+    .then(response => (console.log(JSON.stringify(response))))
     .catch(error =>  { console.log('post comments', error.message); alert('Your comment could not be posted\nError: '+error.message); });
 };
 
@@ -152,7 +153,10 @@ export const addPromos = (promos) => ({
 });
 
 
-// HOME ASSIGNMENT
+
+
+
+// HOME ASSIGNMENT Task 1
 export const fetchLeaders = () => (dispatch) => {
     
     dispatch(leadersLoading());
@@ -188,3 +192,63 @@ export const addLeaders = (leaders) => ({
     type: ActionTypes.ADD_LEADERS,
     payload: leaders
 });
+
+
+  
+
+//Home Assignment Task 2
+export const fetchPostForm = ( firstname,lastname,telnum,email,agree,contactType,message) => (dispatch) => {  //THUNK
+    
+   
+const newFeedback={
+     firstname:firstname,
+     lastname:lastname,
+     telnum:telnum,
+     email:email,
+     agree:agree,
+     contactType:contactType,
+     message:message
+}
+
+    return fetch(baseUrl + 'feedback', {
+        method: 'POST',
+        body: JSON.stringify(newFeedback),
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+        })
+    .then(response => {
+      
+        if (response.ok) {
+           
+          return response;
+        } else {
+            var error = new Error('Error ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+          }
+        },
+        error => {
+              var errmess = new Error(error.message);
+              throw errmess;
+        })
+    .then(response => response.json())
+    .then(response => { dispatch(addFeedback(response)), dispatch(feedbackAlert(response)) } )
+    .catch(errorMess=> dispatch(feedbackFailed(errorMess)))
+    }
+
+export const addFeedback = (feedback) => ({
+    type: ActionTypes.ADD_FEEDBACK,
+    payload: feedback
+});
+
+export const feedbackFailed = (errMessage) =>({
+    type:ActionTypes.FEEDBACK_FAILED,
+    payload:errMessage
+})
+
+export const feedbackAlert = (response)=>({
+    type: ActionTypes.FEEDBACK_ALERT,
+    payload:response
+})
