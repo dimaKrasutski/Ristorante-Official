@@ -197,7 +197,7 @@ export const addLeaders = (leaders) => ({
   
 
 //Home Assignment Task 2
-export const fetchPostForm = ( firstname,lastname,telnum,email,agree,contactType,message) => (dispatch) => {  //THUNK
+export const postFeedback = ( firstname,lastname,telnum,email,agree,contactType,message) => (dispatch) => {  //THUNK
     
    
 const newFeedback={
