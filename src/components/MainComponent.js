@@ -37,10 +37,7 @@ const mapDispatchToProps = dispatch => ({
 
 class Main extends Component {
 
-  constructor(props) {
-    super(props);
-   
-  }
+  
      componentDidMount(){ // метода срабатывает сразу после того как компонент был вставлен в Дерево
        this.props.fetchDishes();
        this.props.fetchComments();
