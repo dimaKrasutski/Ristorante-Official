@@ -1,4 +1,4 @@
 //export const baseUrl = 'http://localhost:3001/';
 
-export const baseUrl = 'http://localhost:3100/';
+export const baseUrl = 'https://ristorante-official-server.herokuapp.com/';
 
