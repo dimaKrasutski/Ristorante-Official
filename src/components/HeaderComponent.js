@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand,Nav,NavbarToggler,Collapse,NavItem, Jumbotron,Button,ModalHeader,ModalBody, Modal, FormGroup,Form,Label,Input} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 
 class Header extends Component {
      constructor(props){
@@ -41,7 +42,7 @@ alert('Username: ' + this.username.value + " Password: " + this.password.value +
         <div className="container">
         <NavbarToggler onClick={this.toggleNav}/>
             <NavbarBrand className='mr-auto' href="/">
-            <img src='assets/images/logo.png' height='30' width='41' alt='Ristorante Con Fusion'></img>
+            <img src='/assets/images/logo.png' height='30' width='41' alt='Ristorante Con Fusion'></img>
             </NavbarBrand>
 <Collapse isOpen={this.state.isNavOpen}  navbar>
             <Nav navbar>

@@ -158,9 +158,7 @@ export const addPromos = (promos) => ({
 
 // HOME ASSIGNMENT Task 1
 export const fetchLeaders = () => (dispatch) => {
-    
     dispatch(leadersLoading());
-
     return fetch(baseUrl + 'leaders')
     .then(response => {
         if (response.ok) {
@@ -215,8 +213,8 @@ const newFeedback={
         body: JSON.stringify(newFeedback),
         headers: {
         'Content-Type': 'application/json'
-        },
-        credentials: 'same-origin'
+               },
+        credentials: 'same-origin',
         })
     .then(response => {
       

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
 import {Loading} from './LoadingComponent';
 import {Fade,Stagger} from 'react-animation-components';
+import { basename } from 'upath';
 
 function RenderLeader(props){
     if(props.leadersIsLoading){
@@ -34,7 +35,7 @@ function RenderLeader(props){
                        <Fade in exitOpacity={0.25}>
                         <Media key={leader.id}>
                         <Media left href="#">
-                           <Media object className='m-4' src={baseUrl + leader.image} alt="Generic placeholder image" />
+                           <Media object className='m-4' src={baseUrl+leader.image} alt="Generic placeholder image" />
                             </Media>
                               <Media body className ='m-4'>
                           <Media heading>{leader.name}</Media>
@@ -48,11 +49,7 @@ function RenderLeader(props){
            </div>
     )}
                } 
-                
-      
-    
 
-    
 function About(props) {
 
     { props.leaders.map((leader) => {
