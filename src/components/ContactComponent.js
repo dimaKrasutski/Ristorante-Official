@@ -47,8 +47,8 @@ class Contact extends Component {
                     <div className="col-12 col-sm-4 offset-sm-1">
                             <h5>Our Address</h5>
                             <address>
-                             10 Lomonosova str. Minsk <br />
-                            Republic of Belarus<br />
+                             10 Dizingoff str,Tel-Aviv <br />
+                            Israel<br />
                             <i className="fa fa-phone"></i>: +37529 124 74 21 />
                             <i className="fa fa-fax"></i>: +37529 666 25 03<br />
                             <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">ristorante@gmail.com</a>
