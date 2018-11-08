@@ -82,8 +82,10 @@ alert('Username: ' + this.username.value + " Password: " + this.password.value +
            <div className="container">
                <div className="row row-header">
                    <div className="col-12 col-sm-6">
-                       <h1>Ristorante Fusion</h1>
-                       <p>We take inspiration from the World's best cuisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                       <h1>Ristorante TA</h1>
+                       <p>Celebrity chef Haim Cohen is best known for shaping contemporary Israeli cuisine, drawing his inspiration from Tel Aviv and Jaffa,
+                            Europe and the Mediterranean, as well as nostalgia for his mom’s home cooking. At his restaurant Yaffo-Tel Aviv, 
+                            the menu evolves according to what’s in season, but fresh fish from the tabun (clay oven) and handmade pastas take the lead here.</p>
                    </div>
                </div>
            </div>
