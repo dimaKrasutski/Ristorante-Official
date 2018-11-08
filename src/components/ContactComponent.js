@@ -17,13 +17,10 @@ class Contact extends Component {
     constructor(props){
         super(props)
 
-      
+    
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
-
-   
-
       handleSubmit(values){
           
         this.props.postFeedback(values.firstname,values.lastname,values.telnum,values.email,values.agree,values.contactType,values.message);
@@ -50,12 +47,11 @@ class Contact extends Component {
                     <div className="col-12 col-sm-4 offset-sm-1">
                             <h5>Our Address</h5>
                             <address>
-                            121, Clear Water Bay Road<br />
-                            Clear Water Bay, Kowloon<br />
-                            HONG KONG<br />
-                            <i className="fa fa-phone"></i>: +852 1234 5678<br />
-                            <i className="fa fa-fax"></i>: +852 8765 4321<br />
-                            <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">confusion@food.net</a>
+                             10 Lomonosova str. Minsk <br />
+                            Republic of Belarus<br />
+                            <i className="fa fa-phone"></i>: +37529 124 74 21 />
+                            <i className="fa fa-fax"></i>: +37529 666 25 03<br />
+                            <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">ristorante@gmail.com</a>
                             </address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
