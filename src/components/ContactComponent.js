@@ -3,7 +3,7 @@ import {Breadcrumb,BreadcrumbItem,Button,Label,Col,Row} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control,Errors} from 'react-redux-form';
 import {Form } from 'react-redux-form';
-
+import MapContainer from './GoogleMapComponent';
 
 
 const required = (val)=> val && val.length;
@@ -49,13 +49,13 @@ class Contact extends Component {
                             <address>
                              10 Dizingoff str,Tel-Aviv <br />
                             Israel<br />
-                            <i className="fa fa-phone"></i>: +37529 124 74 21 />
+                            <i className="fa fa-phone"></i>: +37529 124 74 21 <br/>
                             <i className="fa fa-fax"></i>: +37529 666 25 03<br />
-                            <i className="fa fa-envelope"></i>: <a href="mailto:confusion@food.net">ristorante@gmail.com</a>
+                            <i className="fa fa-envelope"></i><a href="mailto:confusion@food.net">ristorante@gmail.com</a>
                             </address>
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
-                        <h5>Map of our Location</h5>
+                        <MapContainer/>
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
