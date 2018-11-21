@@ -24,4 +24,4 @@ yarn-debug.log*
 # production
 
 package-lock.json
-.log
+yarn-error.log
